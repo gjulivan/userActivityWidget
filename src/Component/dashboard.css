@@ -1,0 +1,129 @@
+.dashboard{
+	padding: 1em;
+}
+.fill{
+	min-height: 100%;
+	height: 100%;
+}
+div.content>.row>div{
+   padding: 1em;
+}
+
+.widget-base>div
+{
+	min-height: 250px;
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	border-radius: 0.5em;
+}
+
+
+.widget-base .dragging-cover,
+.widget-base>.empty-widget>span{
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 15px;
+    padding-top: 30%;
+    text-align: center;
+    color: #5A68c6;
+    font-weight: bold;
+}
+
+div.widget-base>div.empty-widget
+{
+	 border: 2px dashed #ddd;
+}
+div.widget-base>div.filled-widget
+{
+	 box-shadow: 1px 1px 0.2em #999;
+	 cursor:move;
+}
+
+div.widget-base.dragging>div.filled-widget{
+	opacity: 0.4;
+}
+
+.control-buttons>.btn{
+	margin: 0px 10px 0px 10px;
+}
+
+.control-buttons>.add-widget>img{
+   margin: -7px 0px -7px -10px;
+}
+
+.widget-base .row{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+
+.widget-base .title{
+	height: 13%;
+	border-bottom: 1px solid #ddd;
+	position: relative;
+}
+
+.widget-base .body{
+	font-size: 13px;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.widget-base .title>span{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left:1em;
+	height: 60%;
+	margin: auto;
+	font-weight: bold;
+}
+.widget-base .title .btn{
+	padding: 0.2em;
+	border: 0px;
+	text-transform: capitalize;
+}
+
+.widget-base .title .three-dots{
+	display: inline;
+	font-size: 1.7em;
+	padding: 0em;
+}
+
+.three-dots:after {
+  content: "\22EE";
+  
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  
+  line-height: 1;
+  text-align: center;
+}
+
+.filled-widget .body{
+	padding-top: 1em;
+}
+
+
+/*
+
+
+.content .content-widget>div>div{
+	position: absolute;
+	padding: 0px 30px 30px 0px;
+	height: 100%;
+}
+
+.content .content-widget .body{
+	height: 76%;
+}
+
+
+
+*/
