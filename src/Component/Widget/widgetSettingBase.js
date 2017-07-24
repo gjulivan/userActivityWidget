@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'; 
+import $ from 'jquery';
 
 class WidgetSettingBase extends Component {
 constructor(props) {
@@ -8,7 +9,7 @@ constructor(props) {
     }
   }
   componentDidMount(){
-    //console.log(this);
+ 
   }
   componentDidUpdate(prevProps, prevState) {
     //console.log(this);

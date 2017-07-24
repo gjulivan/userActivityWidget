@@ -110,6 +110,14 @@ div.widget-base.dragging>div.filled-widget{
 	padding-top: 1em;
 }
 
+.widget-base .modal-dialog{
+	width: 30%;
+	min-width: 400px;
+}
+
+.widget-base .modal-title{
+	color: #223754;
+}
 
 /*
 

@@ -38,35 +38,35 @@ constructor(props) {
   render() {
     const {numberOfUser, activity, time, date, label} = this.props;
     return (
-    <div className="row">
-       <div className="col-xs-12 col-md-5">
-          <span>{label.numberOfUser}</span>
+    <div className="row user-activity-setting">
+       <div className="col-xs-12">
+         <div className="form-group">
+            <label for="numberOfUser">{label.numberOfUser}</label>
+            <input type="number" className="form-control" id="numberOfUser" 
+                      min="1" max="5" defaultValue={numberOfUser} onChange={this.onValueChange}/>
+         </div>
+         <div className="form-group">
+            <label for="activity-radios">{label.activity}</label>
+            <div id="activity-radios">
+              <label className="radio-inline"> 
+                  <input type="radio" name="Activity" value="DESC" id="asc_activity" onClick={this.onValueChange}/>{label.activityAsc}
+              </label>
+               <label className="radio-inline"> 
+                  <input type="radio" name="Activity" value="ASC" id="desc_activity" onClick={this.onValueChange}/>{label.activityDesc}
+              </label>
+            </div>
+         </div>
+          <div className="form-group">
+            <label for="activity-time">{label.time}</label>
+            <input type="number" className="form-control" id="activity-time" 
+                      min="1" max="5"/>
+         </div>
+         <div className="form-group">
+            <label for="activity-date">{label.date}</label>
+            <input type="number" className="form-control" id="activity-date" 
+                      min="1" max="5"/>
+         </div>
        </div>
-       <div className="col-xs-12 col-md-5">
-          <input type="number" min="1" max="5" defaultValue={numberOfUser} id="numberOfUser" onChange={this.onValueChange}/>
-       </div>
-       <div className="col-xs-12 col-md-5">
-          <span>{label.activity}</span>
-       </div>
-       <div className="col-xs-12 col-md-5">
-          <input type="radio" name="Activity" value="DESC" id="asc_activity" onClick={this.onValueChange}/>
-          <label htmlFor="asc_activity">{label.activityAsc}</label>
-          <input type="radio" name="Activity" value="ASC" id="desc_activity" onClick={this.onValueChange}/>
-          <label htmlFor="desc_activity">{label.activityDesc}</label>
-       </div>
-       <div className="col-xs-12 col-md-5">
-          <span>{label.time}</span>
-       </div>
-       <div className="col-xs-12 col-md-5">
-          <input type="number" min="1" max="5" />
-       </div>
-       <div className="col-xs-12 col-md-5">
-          <span>{label.date}</span>
-       </div>
-       <div className="col-xs-12 col-md-5">
-          <input type="number" min="1" max="5" />
-       </div>
-      
     </div>
     )
 
