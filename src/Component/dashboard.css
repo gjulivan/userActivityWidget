@@ -90,20 +90,15 @@ div.widget-base.dragging>div.filled-widget{
 
 .widget-base .title .three-dots{
 	display: inline;
-	font-size: 1.7em;
 	padding: 0em;
 }
 
-.three-dots:after {
-  content: "\22EE";
-  
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  
-  line-height: 1;
-  text-align: center;
+.three-dots:before{
+  content: url('/images/Settings - icon - default.svg');
+}
+
+.three-dots:hover:before{
+content: url('/images/Settings - icon - selected.svg');	
 }
 
 .filled-widget .body{

@@ -173,7 +173,7 @@ constructor(props) {
      return connectDragSource(connectDropTarget(
       <div className={`widget-base ${isDraggingClass}`}>
       <WidgetSettingBase label={settingLabel} widgetActions={widgetActions} saveSetting = {this.saveSetting} id={id}>
-            {React.cloneElement(widget ? widget.setting : <div />,{setting:setting})}
+            {widget && widget.setting && React.cloneElement(widget.setting,{setting:setting, onValueChange:this.onSettingValueChange})}
       </WidgetSettingBase>
            {
                  widget ? <RenderWidget widget={widget}

@@ -11,6 +11,16 @@ constructor(props) {
   }
   componentDidMount(){
     //console.log(this);
+    const {setting} = this.props;
+    if(setting){
+      if(setting.activity==="ASC"){
+        this.refs["desc_activity"].checked = true;
+      }
+      else{
+       this.refs["asc_activity"].checked = true; 
+      }
+    }
+
   }
   componentDidUpdate(prevProps, prevState) {
     //console.log(this);
@@ -36,23 +46,23 @@ constructor(props) {
    }
 
   render() {
-    const {numberOfUser, activity, time, date, label} = this.props;
+    const {setting, label} = this.props;
     return (
     <div className="row user-activity-setting">
        <div className="col-xs-12">
          <div className="form-group">
             <label htmlFor="numberOfUser">{label.numberOfUser}</label>
             <input type="number" className="form-control" id="numberOfUser" 
-                      min="1" max="5" defaultValue={numberOfUser} onChange={this.onValueChange}/>
+                      min="1" max="5" defaultValue={setting.numberOfUser} onChange={this.onValueChange}/>
          </div>
          <div className="form-group">
             <label htmlFor="activity-radios">{label.activity}</label>
             <div id="activity-radios">
               <label className="radio-inline"> 
-                  <input type="radio" name="Activity" value="DESC" id="asc_activity" onClick={this.onValueChange}/>{label.activityAsc}
+                  <input type="radio" name="Activity" ref="asc_activity" value="DESC" id="asc_activity" onClick={this.onValueChange}/>{label.activityAsc}
               </label>
                <label className="radio-inline"> 
-                  <input type="radio" name="Activity" value="ASC" id="desc_activity" onClick={this.onValueChange}/>{label.activityDesc}
+                  <input type="radio" name="Activity" ref="desc_activity" value="ASC" id="desc_activity" onClick={this.onValueChange}/>{label.activityDesc}
               </label>
             </div>
          </div>

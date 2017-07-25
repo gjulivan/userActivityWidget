@@ -49,9 +49,12 @@ constructor(props) {
              <h3> {label && label.title }</h3>
           </div>
           <div className="control-buttons text-right col-xs-4">
+        {/*
+          ---we don't need this just yet----
               <div className="btn btn-danger edit-layout">
                    {label && label.edit }
               </div>
+        */}
               <div className="btn btn-primary add-widget" data-toggle="modal" data-target="#add-widget-modal">
                  <img src="/images/addwidget - icon.svg" alt={label.add} />
                    {label && label.add }

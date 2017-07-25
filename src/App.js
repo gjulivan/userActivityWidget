@@ -23,7 +23,7 @@ class App extends Component {
        })
        
        widgetActions.selectWidget(newWidgets[0]);
-       widgetActions.editSetting(newWidgets[0].key, {numberOfUser :5, activity : "ASC"});
+       widgetActions.editSetting(newWidgets[0].key, {numberOfUser :5, activity : "DESC"});
        widgetActions.moveWidget(newWidgets[0], 2);
        
   }

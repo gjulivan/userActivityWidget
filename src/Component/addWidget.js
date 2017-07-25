@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types'; 
 import RenderWidgetDirectory from './RenderingComponent/renderWidgetDirectory';
 
-import RenderWidgetItem from './RenderingComponent/RenderWidgetItem'
+import {RenderWidgetItemDirectory, RenderWidgetItemSelected} from './RenderingComponent/RenderWidgetItem'
 import './addWidget.css';
 
 class AddWidget extends Component {
@@ -31,8 +31,13 @@ constructor(props) {
   }
 
   selectWidget(widget){
-    const {widgetActions} = this.props;
-    
+    const {widgetActions, navigations} = this.props;
+    if(this.state.selectedNav === navigations[0]){
+      widgetActions.selectWidget(widget);
+    }
+    else if(this.state.selectedNav === navigations[1]){
+      widgetActions.removeWidget(widget);
+    }
   }
 
   render() {
@@ -52,9 +57,11 @@ constructor(props) {
                 <ul className="nav nav-pills nav-stacked">
                 {
                   navigations.map((nav,idx)=>{
+                    let isActive = this.state.selectedNav===nav ? "active" : "";
                     return (
-                      <li key={nav.key} className="btn btn-default" onClick={()=>{this.selectNav(nav)}}>
-                      <span className={`icon ${nav.key} pull-left`}></span>
+                      <li key={nav.key} className={`btn nav-${nav.key} ${isActive}`} 
+                      onClick={()=>{this.selectNav(nav)}}>
+                      <span className={`icon pull-left`}></span>
                           <span className={`add-widget-nav ${nav.key}`} >{nav.label}</span>
                       </li>
                       )
@@ -69,9 +76,9 @@ constructor(props) {
                       myWidgets={myWidgets}
                       selectedNav={this.state.selectedNav}
                       selectWidget={this.selectWidget}>
-                      <RenderWidgetItem />
+                      {this.state.selectedNav.contentItemRenderer}
                    </RenderWidgetDirectory>
-                       <div className="pull-right">
+                       <div className="pull-right text-right">
                           <div className="svg-button cancel" data-dismiss="modal"></div>
                           <div className="svg-button save"></div>
                         </div>
@@ -97,12 +104,14 @@ AddWidget.defaultProps = {
       {
         key : "directory",
         label : "Widget Directory",
-        contentItemText : "Add Widget"
+        contentItemText : "Add Widget",
+        contentItemRenderer : <RenderWidgetItemDirectory />
       },
       {
         key : "mywidget",
         label : "My Widget",
-        contentItemText : "Remove Widget"
+        contentItemText : "Remove Widget",
+        contentItemRenderer : <RenderWidgetItemSelected />
       }
     
   ]

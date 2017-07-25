@@ -1,18 +1,44 @@
+#add-widget-modal .modal-header,
+#add-widget-modal .modal-body>.row>div:first-child{
+	background-color: #F3F6F7;
+}
+
 #add-widget-modal .modal-body{
 	padding: 0px;
 }
 
 #add-widget-modal .modal-body>.row{
 	padding: 0em 1em;
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+#add-widget-modal .modal-body>.row > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 #add-widget-modal .modal-body>.row>div{
 	padding: 1em 0em;
 }
 
-#add-widget-modal .modal-body .nav{
-	padding-left: 1em;
-	padding-right: 1em;
+#add-widget-modal .modal-body .nav .btn{
+	border: 0px;
+	padding-top: 0.7em;
+	padding-bottom: 0.7em;
+	text-align: left;
 }
 
 #add-widget-modal .modal-body .widget-display{
@@ -23,24 +49,128 @@
 	padding-right: 1em;
 }
 
-.nav .icon.directory,
-.nav .icon.mywidget{
+.nav li:hover,
+.nav li.active{
+	color: #93A5C5;
+	background-color: #fff;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden; 
+	-webkit-transform-style: preserve-3d;
+}
+.nav .icon{
 	margin-top: -6px;
 }
-.nav .icon.directory:before{
+.nav li.nav-directory>.icon:before{
 	content: url('/images/Widgetdirectory - icon - default.svg');
-	display: block;
+	-webkit-transition: all .5s linear;
+    transition : all .5s linear;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden; 
 }
-.nav .icon.directory:hover:before{
+.nav li.nav-directory:hover>.icon:before{
 	content: url('/images/Widgetdirectory - icon - selected.svg');
-	display: block;
+	-webkit-perspective: 1000;
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden; 
 }
 
-.nav .icon.mywidget:before{
+.nav li.nav-mywidget>.icon:before{
 	content: url('/images/Mywidget-default.svg');
+	-webkit-transition: all .5s linear;
+    transition : all .5s linear;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden; 
+}
+.nav li.nav-mywidget:hover>.icon:before{
+	content: url('/images/Mywidget - icon - selected.svg');
+	-webkit-transform-style: preserve-3d;
+	-webkit-perspective: 1000;
+	-webkit-backface-visibility: hidden; 
+}
+
+.btn-directory{
+	background-color: #337ab7;
+	padding: 6px 12px 0px 12px;
+	color:#fff;
+}
+
+.btn-mywidget{
+	background-color: #d9534f;
+	padding: 8px 12px 0px 12px;
+	color:#fff;
+	font-size: 13px;
+
+}
+
+.widget-display .btn:hover{
+	color: #fff ;
+}
+
+.widget-display .content-icon{
+	margin: -5px 0px -5px -10px;
 	display: block;
 }
-.nav .icon.mywidget:hover:before{
-	content: url('/imagesMywidget - icon - selected.svg');
-	display: block;
+.widget-display .content-icon.mywidget{
+	margin: -8px 0px -5px -10px;
 }
+
+.widget-display .content-icon.directory:before{
+	content: url('/images/addwidget - icon.svg');
+}
+
+.widget-display .content-icon.mywidget:before{
+	content: url('/images/Removewidget - icon.svg');
+}
+
+.widget-display .title{
+	font-weight: bold;
+	color: #485A72;
+}
+
+.widget-display .item-detail{
+	font-size: 12px;
+	color: #90A4AF;
+}
+
+.widget-display .author{
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+}
+
+.widget-display .author{
+    margin-top: 0.1em;
+    margin-bottom: 0.4em;
+ }
+
+ .widget-display .row.wrapper{
+ 	margin-left: 0px
+ }
+
+ .widget-display .row.wrapper>div{
+    margin-top: 1em;
+    padding-bottom: 1em;	
+    padding-left: 0px;
+    padding-right: 0px;
+    border-bottom : 1px solid #ddd;
+ }
+
+ .widget-display .row.wrapper+div{
+ 	margin-top: 2em;
+ }
+
+ .widget-display .label-default{
+ 	background-color: #EFF2F6;
+ 	color: #93A5C5;
+ 	margin: 0.2em;
+ 	padding: 0.6em;
+ }
+
+ .widget-display .variables>span{
+ 	color: #93A5C5;
+ 	font-weight: bold;
+ }

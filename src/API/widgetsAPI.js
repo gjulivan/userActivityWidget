@@ -7,7 +7,7 @@ export function GetWidgets(){
 			    key : "UserActivity",
 			    title: "User activity",
 			    author : "Time Doctor",
-			    desc : "Users who worked more or less than their minimum hours required in daily, weekly, and monthly",
+			    desc : "Users who worked more or less than their minimum hours required in daily, weekly, and monthly.",
 			    variables : ["USERS", "WEBSITES", "APPS", "TIME", "DATE"],
 			    icon : "ICON",
 			    content: <UserActivity activity={GetUserActivity()}/>,
@@ -23,8 +23,11 @@ export function GetWidgets(){
 			    desc : "Total hours worked in monthly, weekly, daily, by users",
 			    variables : ["USERS", "DATE"],
 			    icon : "ICON",
-			    content: <span>"User Activity"</span>,
-			    footer : "test footer"
+			    content: <span>"Hours tracked"</span>,
+			    setting: <span>"Hours tracked"</span>,
+			    settingTitle: "Hours tracked",
+			    footer : "test footer",
+			    icon: "users activity widget picture.png"
 			  }
 			  
 			  ]
