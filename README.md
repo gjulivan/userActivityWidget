@@ -1,6 +1,6 @@
 ## Instructions
 
-a single page application that allows user to add text and image into canvas.
+simplified dashboard with an analytics widget management interface that allows the end-user to do adding/removing widgets.
 live version is available at http://teamdashboard.azurewebsites.net/
 
 ## Features
