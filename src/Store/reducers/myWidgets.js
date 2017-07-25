@@ -1,6 +1,4 @@
 import * as widgetTypes from '../types/widgetTypes'
-import $ from "jquery";
-//import { Map,List } from 'immutable';
 
 const initialState = [];
 

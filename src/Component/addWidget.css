@@ -1,0 +1,46 @@
+#add-widget-modal .modal-body{
+	padding: 0px;
+}
+
+#add-widget-modal .modal-body>.row{
+	padding: 0em 1em;
+}
+
+#add-widget-modal .modal-body>.row>div{
+	padding: 1em 0em;
+}
+
+#add-widget-modal .modal-body .nav{
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+#add-widget-modal .modal-body .widget-display{
+	border-left: 1px solid #ddd;
+}
+
+#add-widget-modal .modal-body .widget-display>div{
+	padding-right: 1em;
+}
+
+.nav .icon.directory,
+.nav .icon.mywidget{
+	margin-top: -6px;
+}
+.nav .icon.directory:before{
+	content: url('/images/Widgetdirectory - icon - default.svg');
+	display: block;
+}
+.nav .icon.directory:hover:before{
+	content: url('/images/Widgetdirectory - icon - selected.svg');
+	display: block;
+}
+
+.nav .icon.mywidget:before{
+	content: url('/images/Mywidget-default.svg');
+	display: block;
+}
+.nav .icon.mywidget:hover:before{
+	content: url('/imagesMywidget - icon - selected.svg');
+	display: block;
+}

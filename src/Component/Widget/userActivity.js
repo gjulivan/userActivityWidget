@@ -33,7 +33,7 @@ constructor(props) {
              return (
               <div className="row" key={user.id}>
                 <div className=" col-xs-12 col-sm-5">
-                    <img src={randomAvatarPath} />
+                    <img src={randomAvatarPath} alt={user.name} />
                      {`${user.name} ${user.lastname}`}
                 </div>
                 <div className="col-xs-8 col-sm-5 ">

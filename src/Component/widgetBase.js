@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { findDOMNode } from 'react-dom';
+//import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types'; 
 import { DragSource, DropTarget  } from 'react-dnd';
 import flow from 'lodash.flow';
@@ -27,9 +27,8 @@ const widgetSource = {
       return;
     }
     // When dropped on a compatible target, do something
-    const widget = monitor.getItem();
-    const dropResult = monitor.getDropResult();
-  //  CardActions.moveCardToList(item.id, dropResult.listId);
+   // const widget = monitor.getItem();
+   // const dropResult = monitor.getDropResult();
   }
 };
 
@@ -67,14 +66,14 @@ const widgetTarget = {
     // can just use componentWillReceiveProps() to handle enter/leave.
 
     // You can access the coordinates if you need them
-    const clientOffset = monitor.getClientOffset();
-    const componentRect = findDOMNode(component).getBoundingClientRect();
+    //const clientOffset = monitor.getClientOffset();
+    //const componentRect = findDOMNode(component).getBoundingClientRect();
 
     // You can check whether we're over a nested drop target
-    const isJustOverThisOne = monitor.isOver({ shallow: true });
+    //const isJustOverThisOne = monitor.isOver({ shallow: true });
 
     // You will receive hover() even for items for which canDrop() is false
-    const canDrop = monitor.canDrop();
+    //const canDrop = monitor.canDrop();
   },
 
   drop(props, monitor, component) {
@@ -170,11 +169,11 @@ constructor(props) {
       title : widget.settingTitle
     } : {}
 
-    const settingComponent = widget ? widget.setting : <div />;
+    //const settingComponent = widget ? widget.setting : <div />;
      return connectDragSource(connectDropTarget(
       <div className={`widget-base ${isDraggingClass}`}>
       <WidgetSettingBase label={settingLabel} widgetActions={widgetActions} saveSetting = {this.saveSetting} id={id}>
-            {React.cloneElement(widget ? widget.setting : <div />,Object.assign({}, setting, {onValueChange: this.onSettingValueChange}))}
+            {React.cloneElement(widget ? widget.setting : <div />,{setting:setting})}
       </WidgetSettingBase>
            {
                  widget ? <RenderWidget widget={widget}

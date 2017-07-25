@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'; 
-import $ from 'jquery';
+//import $ from 'jquery';
 
 class WidgetSettingBase extends Component {
 constructor(props) {
@@ -32,8 +32,8 @@ constructor(props) {
 
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-primary" onClick={saveSetting}>Save changes</button>
+            <div className="svg-button cancel" data-dismiss="modal"></div>
+            <div className="svg-button save" onClick={saveSetting}></div>
           </div>
         </div>
       </div>

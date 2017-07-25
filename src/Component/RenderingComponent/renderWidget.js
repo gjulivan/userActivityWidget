@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types'; 
+import React from 'react';
 
 export default function RenderWidget(props){
-	const {isDragging , widget, setting, selectedView, selectView, selectMenu,
+	const {widget, setting, selectedView, selectView, selectMenu,
 		availableViews, availableMenus} = props;
     return (
 		    <div className="filled-widget">

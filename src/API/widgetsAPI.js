@@ -13,7 +13,8 @@ export function GetWidgets(){
 			    content: <UserActivity activity={GetUserActivity()}/>,
 			    setting: <UserActivitySetting />,
 			    settingTitle : "Top Highest percentage of Mobile Users",
-			    footer : "test footer"
+			    footer : "test footer",
+			    icon: "users activity widget picture.png"
 			  },
 			  {
 			    key : "HoursTracked",

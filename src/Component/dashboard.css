@@ -119,6 +119,29 @@ div.widget-base.dragging>div.filled-widget{
 	color: #223754;
 }
 
+/* SVG OVERRIDE */
+.svg-button{
+	display: inline-block;
+	margin: 0.2em;
+	cursor: pointer;
+}
+.svg-button.cancel:before{
+	content: url('/images/cancelbutton - web - default.svg');
+	display: block;
+}
+.svg-button.cancel:hover:before{
+	content: url('/images/cancelbutton - web - hover.svg');
+	display: block;
+}
+
+.svg-button.save:before{
+	content: url('/images/savebutton - web - default.svg');
+	display: block;
+}
+.svg-button.save:hover:before{
+	content: url('/images/savebutton - web - selected.svg');
+	display: block;
+}
 /*
 
 

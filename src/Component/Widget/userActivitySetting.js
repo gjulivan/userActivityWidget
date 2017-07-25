@@ -41,12 +41,12 @@ constructor(props) {
     <div className="row user-activity-setting">
        <div className="col-xs-12">
          <div className="form-group">
-            <label for="numberOfUser">{label.numberOfUser}</label>
+            <label htmlFor="numberOfUser">{label.numberOfUser}</label>
             <input type="number" className="form-control" id="numberOfUser" 
                       min="1" max="5" defaultValue={numberOfUser} onChange={this.onValueChange}/>
          </div>
          <div className="form-group">
-            <label for="activity-radios">{label.activity}</label>
+            <label htmlFor="activity-radios">{label.activity}</label>
             <div id="activity-radios">
               <label className="radio-inline"> 
                   <input type="radio" name="Activity" value="DESC" id="asc_activity" onClick={this.onValueChange}/>{label.activityAsc}
@@ -57,12 +57,12 @@ constructor(props) {
             </div>
          </div>
           <div className="form-group">
-            <label for="activity-time">{label.time}</label>
+            <label htmlFor="activity-time">{label.time}</label>
             <input type="number" className="form-control" id="activity-time" 
                       min="1" max="5"/>
          </div>
          <div className="form-group">
-            <label for="activity-date">{label.date}</label>
+            <label htmlFor="activity-date">{label.date}</label>
             <input type="number" className="form-control" id="activity-date" 
                       min="1" max="5"/>
          </div>
@@ -86,6 +86,7 @@ UserActivitySetting.defaultProps = {
 };
 
 UserActivitySetting.propTypes = {
+  label : PropTypes.object
 }
 
 

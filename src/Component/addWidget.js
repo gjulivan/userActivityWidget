@@ -1,62 +1,42 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'; 
-import WidgetListView from './widgetListView';
-import $ from 'jquery';
+import RenderWidgetDirectory from './RenderingComponent/renderWidgetDirectory';
 
+import RenderWidgetItem from './RenderingComponent/RenderWidgetItem'
+import './addWidget.css';
 
 class AddWidget extends Component {
 constructor(props) {
     super(props);
     this.state = {
-      selectedNav : "directory",
-      listButtonText : "Add Widget",
-      displayWidgetList : []
+      selectedNav : {},
+      listButtonText : "Add Widget"
     }
 
     this.selectNav = this.selectNav.bind(this);
     this.selectWidget = this.selectWidget.bind(this);
-    this.findDisplayWidget = this.findDisplayWidget.bind(this);
-  }
-
-  findDisplayWidget(selectedNav){
-      const {widgets, myWidgets} = this.props;
-    if(selectedNav === "directory"){
-      return widgets;
-    }
-    else{
-
-     return myWidgets.map((w)=>{
-          return widgets[w.key];
-     })
-    }
   }
 
   componentDidMount(){
-    this.selectNav(this.props.navigations[0].key)
-    //console.log(this);
+    this.selectNav(this.props.navigations[0])
   }
   componentDidUpdate(prevProps, prevState) {
     //console.log(this);
   }
 
 
-  selectNav(key,event){
-    let displayWidgetList = this.findDisplayWidget(key);
-    this.setState({selectedNav: key, 
-       listButtonText : key === "directory" ? "Add Widget" : "Remove Widget",
-       displayWidgetList : displayWidgetList});
+  selectNav(nav){
+    this.setState({selectedNav: nav})
+
   }
 
   selectWidget(widget){
     const {widgetActions} = this.props;
-    if(this.state.selectedNav === "directory"){
-      widgetActions.selectWidget({key: widget.key});
-    }
+    
   }
 
   render() {
     const {label, navigations, widgets, myWidgets, widgetActions} = this.props;
-
 
     return (
     <div className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="add-widget-modal" id="add-widget-modal">
@@ -73,23 +53,32 @@ constructor(props) {
                 {
                   navigations.map((nav,idx)=>{
                     return (
-                      <li key={nav.key} className="btn btn-default" onClick={()=>{this.selectNav(nav.key)}}>
-                          {nav.content}
+                      <li key={nav.key} className="btn btn-default" onClick={()=>{this.selectNav(nav)}}>
+                      <span className={`icon ${nav.key} pull-left`}></span>
+                          <span className={`add-widget-nav ${nav.key}`} >{nav.label}</span>
                       </li>
                       )
                   })
                 }
                 </ul>
               </div>
-              <div className="col-xs-9 col-md-8">
-                  <WidgetListView widgets={this.state.displayWidgetList} label={{buttonText: this.state.listButtonText}} selectWidget={this.selectWidget}/>
+              <div className="col-xs-9 col-md-9 widget-display">
+                  <RenderWidgetDirectory 
+                  navigations={navigations}
+                      widgets={widgets} 
+                      myWidgets={myWidgets}
+                      selectedNav={this.state.selectedNav}
+                      selectWidget={this.selectWidget}>
+                      <RenderWidgetItem />
+                   </RenderWidgetDirectory>
+                       <div className="pull-right">
+                          <div className="svg-button cancel" data-dismiss="modal"></div>
+                          <div className="svg-button save"></div>
+                        </div>
               </div>
             </div>
 
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-primary">Save changes</button>
+
           </div>
         </div>
       </div>
@@ -107,19 +96,13 @@ AddWidget.defaultProps = {
   navigations:  [
       {
         key : "directory",
-        content : <div>
-                    <span>
-                        <img src="/images/Widgetdirectory - icon - default.svg" />
-                    </span> Widget Directory
-                  </div>
+        label : "Widget Directory",
+        contentItemText : "Add Widget"
       },
       {
         key : "mywidget",
-        content :   <div>
-                      <span>
-                          <img src="/images/Mywidget-default.svg" />
-                      </span> My Widget
-                    </div>
+        label : "My Widget",
+        contentItemText : "Remove Widget"
       }
     
   ]

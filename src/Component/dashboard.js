@@ -4,7 +4,6 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 
 import WidgetBase from './widgetBase';
-import $ from "jquery";
 import 'bootstrap/dist/css/bootstrap.css';
 import './dashboard.css';
 
@@ -54,7 +53,7 @@ constructor(props) {
                    {label && label.edit }
               </div>
               <div className="btn btn-primary add-widget" data-toggle="modal" data-target="#add-widget-modal">
-                 <img src="/images/addwidget - icon.svg" />
+                 <img src="/images/addwidget - icon.svg" alt={label.add} />
                    {label && label.add }
               </div>
           </div>
