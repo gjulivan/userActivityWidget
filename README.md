@@ -23,6 +23,7 @@ Below are the basic features for the application:
 widgets
 ```
 keep the list of registered widgets, key-based.
+```
 {
 	"UserActivity" : {
 		key : "UserActivity",
@@ -38,27 +39,32 @@ keep the list of registered widgets, key-based.
 		icon: "users activity widget picture.png"
 	}	
 }
+```
 
 ```
 myWidgets
 ```
 
 keep the key of selected widgets to display on the dashboard
+```
 {
    [2] : "UserActivity"  //set the "UserActivity widget, on the 2nd area of dashboard"
 }
+```
 
 
 ```
 myWidgetsSetting
 ```
 customize setting for all widgets
+```
 {
   "UserActivity" : {
   		"numberOfUser" : 5,
   		"activity" : "DESC"
   }
 }
+```
 
 ## How To Install
 
