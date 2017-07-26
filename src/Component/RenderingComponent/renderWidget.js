@@ -8,7 +8,7 @@ export default function RenderWidget(props){
 		      <div className="row title">
 		           <span> {widget.title}</span>
 		           <div className="pull-right">
-		              <div className="btn-group">
+		              <div className="btn-group views">
 		                <button className="btn btn-default dropdown-toggle" 
 		                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		                  {selectedView} <span className="caret"></span>
@@ -21,7 +21,7 @@ export default function RenderWidget(props){
 		                }
 		                </ul>
 		              </div>
-		              <div className="btn-group">
+		              <div className="btn-group settings">
 		                    <div className="three-dots btn" data-toggle="dropdown"></div>
 		                    <ul className="dropdown-menu">
 		                    {

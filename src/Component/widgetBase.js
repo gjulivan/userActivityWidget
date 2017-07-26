@@ -19,6 +19,7 @@ import WidgetSettingBase from './Widget/widgetSettingBase';
 const widgetSource = {
   beginDrag(props) {
     // Return the data describing the dragged item
+    
     return props.widget;
   },
 

@@ -1,5 +1,5 @@
 .user-activity .progress{
-	height:1em;
+	height:0.9em;
 	margin-left: auto; margin-right:auto;
 }
 
@@ -15,4 +15,15 @@
 
 .user-activity-setting>div{
 	margin-top: 1em;
+}
+
+.user-activity .row{
+	margin-top: 0.45em;
+}
+
+.user-activity .row>div:first-child{
+	margin-top: -7px;
+}
+.user-activity .row>div:nth-of-type(2){
+	padding-left: 3em;
 }
