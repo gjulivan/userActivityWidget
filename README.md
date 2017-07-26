@@ -18,13 +18,47 @@ Below are the basic features for the application:
 
 - this project is created using create-react-app
 
-#### file structure :
+#### redux store :
 ```
-index.js
+widgets
 ```
-initialize code structure
+keep the list of registered widgets, key-based.
+{
+	"UserActivity" : {
+		key : "UserActivity",
+		title: "User activity",
+		author : "Time Doctor",
+		desc : "Users who worked more or less than their minimum hours.",
+		variables : ["USERS", "WEBSITES", "APPS", "TIME", "DATE"],
+		icon : "ICON",
+		content: <UserActivity activity={GetUserActivity()}/>,
+		setting: <UserActivitySetting />,
+		settingTitle : "Top Highest percentage of Mobile Users",
+		footer : "test footer",
+		icon: "users activity widget picture.png"
+	}	
+}
 
 ```
+myWidgets
+```
+
+keep the key of selected widgets to display on the dashboard
+{
+   [2] : "UserActivity"  //set the "UserActivity widget, on the 2nd area of dashboard"
+}
+
+
+```
+myWidgetsSetting
+```
+customize setting for all widgets
+{
+  "UserActivity" : {
+  		"numberOfUser" : 5,
+  		"activity" : "DESC"
+  }
+}
 
 ## How To Install
 

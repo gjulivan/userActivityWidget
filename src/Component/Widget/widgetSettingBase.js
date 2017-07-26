@@ -16,7 +16,7 @@ constructor(props) {
   }
 
   render() {
-    const {id, widgetActions, children, saveSetting, label} = this.props;
+    const {id, widgetActions, children, saveSetting, cancelSetting, label} = this.props;
     return (
      <div className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="widget-setting-modal" id={`widget-setting-modal-${id}`}>
       <div className="modal-dialog" role="document">
@@ -32,7 +32,7 @@ constructor(props) {
 
           </div>
           <div className="modal-footer">
-            <div className="svg-button cancel" data-dismiss="modal"></div>
+            <div className="svg-button cancel" onClick={cancelSetting} data-dismiss="modal"></div>
             <div className="svg-button save" onClick={saveSetting}></div>
           </div>
         </div>

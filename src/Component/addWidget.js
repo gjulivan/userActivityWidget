@@ -15,10 +15,12 @@ constructor(props) {
 
     this.selectNav = this.selectNav.bind(this);
     this.selectWidget = this.selectWidget.bind(this);
+    this.cancelChanges = this.cancelChanges.bind(this);
+    this.saveChanges = this.saveChanges.bind(this);
   }
 
   componentDidMount(){
-    this.selectNav(this.props.navigations[0])
+    this.selectNav(this.props.navigations[0]);
   }
   componentDidUpdate(prevProps, prevState) {
     //console.log(this);
@@ -28,6 +30,12 @@ constructor(props) {
   selectNav(nav){
     this.setState({selectedNav: nav})
 
+  }
+  saveChanges(){
+
+  }
+  cancelChanges(){
+    this.props.widgetActions.revertMyWidgetState(this.props.savedState);
   }
 
   selectWidget(widget){
@@ -79,8 +87,8 @@ constructor(props) {
                       {this.state.selectedNav.contentItemRenderer}
                    </RenderWidgetDirectory>
                        <div className="pull-right text-right">
-                          <div className="svg-button cancel" data-dismiss="modal"></div>
-                          <div className="svg-button save"></div>
+                          <div className="svg-button cancel" onClick={this.cancelChanges} data-dismiss="modal"></div>
+                          <div className="svg-button save" data-dismiss="modal"></div>
                         </div>
               </div>
             </div>

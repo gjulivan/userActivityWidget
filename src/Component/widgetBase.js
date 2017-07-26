@@ -128,6 +128,7 @@ constructor(props) {
     this.selectMenu = this.selectMenu.bind(this);
     this.onSettingValueChange = this.onSettingValueChange.bind(this);
     this.saveSetting = this.saveSetting.bind(this);
+    this.cancelSetting = this.cancelSetting.bind(this);
   }
   componentDidMount(){
     //console.log(this);
@@ -154,11 +155,15 @@ constructor(props) {
     this.setState({widgetSetting: Object.assign({},this.state.widgetSetting, {[key] : value} )});
   }
 
+  cancelSetting(){
+     this.setState({widgetSetting : {}});
+  }
   saveSetting(){
      const { widget, setting, widgetActions} = this.props;
      let newSetting = Object.assign({}, setting, this.state.widgetSetting);
      widgetActions.editSetting(widget.key, newSetting);
      this.setState({widgetSetting : {}});
+      $(`#widget-setting-modal-${this.props.id}`).modal('hide');
   }
 
   render() {
@@ -169,10 +174,11 @@ constructor(props) {
       title : widget.settingTitle
     } : {}
 
-    //const settingComponent = widget ? widget.setting : <div />;
      return connectDragSource(connectDropTarget(
       <div className={`widget-base ${isDraggingClass}`}>
-      <WidgetSettingBase label={settingLabel} widgetActions={widgetActions} saveSetting = {this.saveSetting} id={id}>
+      <WidgetSettingBase label={settingLabel} widgetActions={widgetActions} 
+            saveSetting={this.saveSetting} 
+            cancelSetting={this.cancelSetting} id={id}>
             {widget && widget.setting && React.cloneElement(widget.setting,{setting:setting, onValueChange:this.onSettingValueChange})}
       </WidgetSettingBase>
            {

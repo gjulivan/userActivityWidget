@@ -14,8 +14,12 @@ export default function RenderWidgetDirectory(props){
 		         	navigations && navigations.length>0 ?
 		         	 displayedWidgets && Object.keys(displayedWidgets).map((key)=>{
 		         	 	let widget = displayedWidgets[key];
-		         	 	if(!widget.key){
+		         	 	let disabled = false;
+		         	 	if(!widget.key){ //if my widget
 		         	 		widget = widgets[widget];
+		         	 	}
+		         	 	else{ //if already added, disabled the add widget button
+		         	 		disabled = Object.keys(myWidgets).filter((k)=>myWidgets[k]===widget.key).length >0;
 		         	 	}
 		              return (
 		              	<div className="col-xs-12" key={key}>
@@ -28,7 +32,7 @@ export default function RenderWidgetDirectory(props){
 				            </div>
 
 				            <div className="col-xs-3">
-				             	<div className={`btn btn-${selectedNav.key}`} onClick={()=>{selectWidget(widget)}}>
+				             	<div className={`btn btn-${selectedNav.key} ${disabled ? "disabled" : ""}`} onClick={()=>{selectWidget(widget)}}>
 				             	 <span className={`content-icon ${selectedNav.key} pull-left`}></span>
 				             				{selectedNav.contentItemText}
 				                </div>

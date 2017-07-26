@@ -41,6 +41,13 @@ export function removeWidget(widget, seq) {
     };
 }
 
+export function revertMyWidgetState(lastSavedState) {
+    return {
+        type: widgetTypes.REVERT_MYWIDGET,
+        lastSavedState: lastSavedState
+    };
+}
+
 export function editSetting(key, setting){
  return {
         type: widgetTypes.EDIT_SETTING,

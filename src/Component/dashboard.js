@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
+import $ from 'jquery';
 
 import WidgetBase from './widgetBase';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -14,8 +15,9 @@ class Dashboard extends Component {
 constructor(props) {
     super(props);
     this.state = {
+      myCurrentWidget : {}
     }
-    this.addWidget = this.addWidget.bind(this);
+    this.showWidgetModal = this.showWidgetModal.bind(this);
   }
   componentDidMount(){
     //console.log(this);
@@ -24,14 +26,16 @@ constructor(props) {
     //console.log(this);
   }
 
-  addWidget(ev){
-    alert("add");
+  showWidgetModal(ev){
+    this.setState({myCurrentWidget : this.props.myWidgets});
+     $(`#add-widget-modal`).modal('show');
   }
 
   render() {
     const {label, componentCount, widgets, myWidgets ,myWidgetsSetting, widgetActions} = this.props;
     let contents = [];
       Object.keys(myWidgets).forEach(function(key) {
+
        contents[key-1] =  widgets[myWidgets[key]];
       });
     for(let i=0;i<componentCount;i++){
@@ -43,7 +47,7 @@ constructor(props) {
 
     return (
     <div className="dashboard container">
-    <AddWidget widgets={widgets} myWidgets={myWidgets} widgetActions={widgetActions}/>
+    <AddWidget widgets={widgets} myWidgets={myWidgets} widgetActions={widgetActions} savedState={this.state.myCurrentWidget}/>
       <div className="title row">
           <div className="col-xs-8">
              <h3> {label && label.title }</h3>
@@ -55,7 +59,7 @@ constructor(props) {
                    {label && label.edit }
               </div>
         */}
-              <div className="btn btn-primary add-widget" data-toggle="modal" data-target="#add-widget-modal">
+              <div className="btn btn-primary add-widget" onClick={this.showWidgetModal}>
                  <img src="/images/addwidget - icon.svg" alt={label.add} />
                    {label && label.add }
               </div>

@@ -6,6 +6,7 @@ export function myWidgets(state = initialState, action) {
     switch (action.type) {
         case widgetTypes.SELECT_WIDGET:
          {
+            console.log(state);
              if(action.widget){
              
              		if(GetCurrentIndex(state, action.widget.key)<0){
@@ -36,6 +37,9 @@ export function myWidgets(state = initialState, action) {
           delete state[currentPlace];
             return Object.assign({}, state);
         }
+        case widgetTypes.REVERT_MYWIDGET:
+           return action.lastSavedState;
+            break
         default:
             return state;
     }
